@@ -1,11 +1,22 @@
 import time
-import winsound
 import threading
 import keyboard
+import pygame
+
+# MP3 파일 경로를 여기에 입력하세요
+MP3_FILE_PATH = "quack.mp3"  # 다운로드한 MP3 파일의 경로로 변경하세요
+
+# 볼륨 설정 (0.0 ~ 1.0, 0.5 = 50% 볼륨)
+VOLUME = 0.1  # 원하는 볼륨으로 조절하세요 (0.0 = 무음, 1.0 = 최대 볼륨)
+
+# pygame 초기화
+pygame.mixer.init()
 
 def start_single_timer():
     time.sleep(55)
-    winsound.Beep(1000, 500)
+    pygame.mixer.music.load(MP3_FILE_PATH)
+    pygame.mixer.music.set_volume(VOLUME)
+    pygame.mixer.music.play()
 
 if __name__ == "__main__":
     
